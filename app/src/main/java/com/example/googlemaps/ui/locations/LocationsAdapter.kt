@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.googlemaps.R
 import com.psdemo.outdoorexplorer.R
 import com.psdemo.outdoorexplorer.data.Location
 import kotlinx.android.synthetic.main.location_item.view.*
