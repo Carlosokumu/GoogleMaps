@@ -1,5 +1,7 @@
 package com.example.googlemaps.ui.activities
 
+import com.example.googlemaps.R
+
 package com.psdemo.outdoorexplorer.ui.activities
 
 import android.os.Bundle
