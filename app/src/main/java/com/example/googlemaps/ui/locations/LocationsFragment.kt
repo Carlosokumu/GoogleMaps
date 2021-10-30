@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.psdemo.outdoorexplorer.R
+import com.example.googlemaps.R
 import kotlinx.android.synthetic.main.fragment_locations.*
 
 class LocationsFragment : Fragment(), LocationsAdapter.OnClickListener {

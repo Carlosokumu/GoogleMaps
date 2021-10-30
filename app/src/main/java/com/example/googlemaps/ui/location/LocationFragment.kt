@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.psdemo.outdoorexplorer.R
+import com.example.googlemaps.R
+import com.example.googlemaps.ui.location.ActivitiesAdapter
+import com.example.googlemaps.ui.location.LocationFragmentArgs
 import kotlinx.android.synthetic.main.fragment_location.*
 
 class LocationFragment : Fragment() {
@@ -26,6 +28,7 @@ class LocationFragment : Fragment() {
         arguments?.let { bundle ->
             val passedArguments = LocationFragmentArgs.fromBundle(bundle)
             locationViewModel.getLocation(passedArguments.locationId)
+                    
                 .observe(viewLifecycleOwner, Observer { wrapper ->
                     val location = wrapper.location
                     title.text = location.title

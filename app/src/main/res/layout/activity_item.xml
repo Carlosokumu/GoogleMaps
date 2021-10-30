@@ -24,11 +24,11 @@
                 android:layout_height="36dp"
                 android:layout_margin="8dp"
                 android:src="@drawable/ic_rowing_black_24dp"
-                android:tint="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                app:tint="@android:color/black" />
 
             <TextView
                 android:id="@+id/title"
@@ -48,12 +48,12 @@
                 android:layout_height="36dp"
                 android:layout_margin="8dp"
                 android:src="@drawable/ic_baseline_tap_and_play_24"
-                android:tint="@color/colorGray"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                app:tint="@color/colorGray" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

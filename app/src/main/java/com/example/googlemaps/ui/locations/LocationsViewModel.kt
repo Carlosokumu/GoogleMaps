@@ -2,9 +2,9 @@ package com.psdemo.outdoorexplorer.ui.locations
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.psdemo.outdoorexplorer.data.OutdoorRepository
-import com.psdemo.outdoorexplorer.data.OutdoorRoomDatabase
-import com.psdemo.outdoorexplorer.data.OutdoorRoomRepository
+import com.example.googlemaps.data.OutdoorRepository
+import com.example.googlemaps.data.OutdoorRoomDatabase
+import com.example.googlemaps.data.OutdoorRoomRepository
 
 class LocationsViewModel(application: Application) : AndroidViewModel(application) {
     private val outdoorRepository: OutdoorRepository

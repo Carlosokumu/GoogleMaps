@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">GoogleMaps</string>
+    <string name="title_activities">String</string>
+    <string name="title_map">Title</string>
+    <string name="title_location">Location</string>
+    <string name="distance_value">Distance</string>
+    <string name="activities_label">Activity</string>
+    <string name="hours_label">hours</string>
+    <string name="distance">Distance</string>
+    <string name="title_locations">Locations</string>
 </resources>

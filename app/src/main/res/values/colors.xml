@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorGray">@android:color/darker_gray</color>
     <color name="colorAccent">#ff7043</color>
-
-</resources>
+    <color name="colorPrimary">#43a047</color>
+    <color name="colorPrimaryDark">#00701a</color>
+    </resources>

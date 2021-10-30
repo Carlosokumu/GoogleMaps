@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/navigation_activities"
-        android:name="com.psdemo.outdoorexplorer.ui.activities.ActivitiesFragment"
+        android:name="com.example.googlemaps.ui.activities.ActivitiesFragment"
         android:label="@string/title_activities"
         tools:layout="@layout/fragment_activities">
         <action
@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_location"
-        android:name="com.psdemo.outdoorexplorer.ui.location.LocationFragment"
+        android:name="com.example.googlemaps.ui.location.LocationFragment"
         android:label="@string/title_location"
         tools:layout="@layout/fragment_location">
         <argument

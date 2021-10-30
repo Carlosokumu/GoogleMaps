@@ -1,11 +1,11 @@
-package com.psdemo.outdoorexplorer.ui.location
+package com.example.googlemaps.ui.location
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.psdemo.outdoorexplorer.R
-import com.psdemo.outdoorexplorer.data.Activity
+import com.example.googlemaps.R
+import com.example.googlemaps.data.Activity
 import kotlinx.android.synthetic.main.location_activity_item.view.*
 
 class ActivitiesAdapter : RecyclerView.Adapter<ActivitiesAdapter.ActivityHolder>() {
