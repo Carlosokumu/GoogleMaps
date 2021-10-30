@@ -13,7 +13,8 @@ data class Activity(
 
 @Entity
 data class Location(
-    @PrimaryKey(autoGenerate = true) val locationId: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val locationId: Int = 0,
     val title: String,
     val description: String,
     val hours: String,
