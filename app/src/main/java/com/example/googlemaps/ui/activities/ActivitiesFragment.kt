@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -34,12 +35,13 @@ class ActivitiesFragment : Fragment(), ActivitiesAdapter.OnClickListener {
     }
 
     override fun onClick(id: Int, title: String) {
-        val action = ActivitiesFragmentDirections
+        Toast.makeText(requireContext(),title,Toast.LENGTH_SHORT).show()
+       val action = ActivitiesFragmentDirections
             .actionNavigationActivitiesToNavigationLocations()
-        action.activityId = id
-        action.title = "Locations with $title"
-        val navController = Navigation.findNavController(requireView())
-        navController.navigate(action)
+       action.activityId = id
+       action.title = "Locations with $title"
+       val navController = Navigation.findNavController(requireView())
+       navController.navigate(action)
     }
 
     override fun onGeofenceClick(id: Int) {

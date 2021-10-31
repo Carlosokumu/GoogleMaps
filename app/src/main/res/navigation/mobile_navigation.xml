@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/navigation_locations"
-        android:name="com.psdemo.outdoorexplorer.ui.locations.LocationsFragment"
+        android:name="com.example.googlemaps.ui.locations.LocationsFragment"
         android:label="{title}"
         tools:layout="@layout/fragment_locations">
         <action

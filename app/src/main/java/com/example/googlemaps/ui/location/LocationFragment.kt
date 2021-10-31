@@ -1,18 +1,18 @@
-package com.psdemo.outdoorexplorer.ui.location
+package com.example.googlemaps.ui.location
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.googlemaps.R
-import com.example.googlemaps.ui.location.ActivitiesAdapter
-import com.example.googlemaps.ui.location.LocationFragmentArgs
+import com.example.googlemaps.ui.locations.LocationsFragmentArgs
+import com.psdemo.outdoorexplorer.ui.location.ActivitiesAdapter
+import com.psdemo.outdoorexplorer.ui.location.LocationViewModel
 import kotlinx.android.synthetic.main.fragment_location.*
 
-class LocationFragment : Fragment() {
+class LocationFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +28,6 @@ class LocationFragment : Fragment() {
         arguments?.let { bundle ->
             val passedArguments = LocationFragmentArgs.fromBundle(bundle)
             locationViewModel.getLocation(passedArguments.locationId)
-                    
                 .observe(viewLifecycleOwner, Observer { wrapper ->
                     val location = wrapper.location
                     title.text = location.title

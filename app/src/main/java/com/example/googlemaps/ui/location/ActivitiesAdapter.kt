@@ -1,4 +1,4 @@
-package com.example.googlemaps.ui.location
+package com.psdemo.outdoorexplorer.ui.location
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,8 @@ import com.example.googlemaps.R
 import com.example.googlemaps.data.Activity
 import kotlinx.android.synthetic.main.location_activity_item.view.*
 
-class ActivitiesAdapter : RecyclerView.Adapter<ActivitiesAdapter.ActivityHolder>() {
+class ActivitiesAdapter :
+    RecyclerView.Adapter<ActivitiesAdapter.ActivityHolder>() {
     private var allActivities: List<Activity> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityHolder {

@@ -5,7 +5,8 @@ import com.google.android.gms.location.Geofence
 
 @Entity
 data class Activity(
-    @PrimaryKey(autoGenerate = true) val activityId: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val activityId: Int = 0,
     val title: String,
     val icon: String,
     val geofenceEnabled: Boolean

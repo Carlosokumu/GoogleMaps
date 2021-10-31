@@ -43,7 +43,7 @@ class LocationsAdapter(private val onClickListener: OnClickListener) :
         @SuppressLint("StringFormatInvalid")
         fun bind(location: Location, clickListener: OnClickListener) {
             with(itemView) {
-                title.text = location.title
+            title.text = location.title
                 card.setOnClickListener { clickListener.onClick(location.locationId) }
 
                 if (currentLocation != null) {
