@@ -35,7 +35,7 @@ class MapFragment : Fragment() {
                 mapViewModel.allLocations.observe(viewLifecycleOwner, Observer {
                     for (location in it){
                         val point=LatLng(location.latitude,location.longitude)
-                        map.addMarker(MarkerOptions().position(point).title(location.title))
+                        map.addMarker(MarkerOptions().position(point).title(location.title).snippet("Hours: ${location.hours}"))
                     }
                 })
                 map.uiSettings.isZoomControlsEnabled=true
