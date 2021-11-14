@@ -45,7 +45,7 @@ class MapFragment : Fragment() {
                         val point=LatLng(location.latitude,location.longitude)
                         map.addMarker(MarkerOptions().position(point).title(location.title).snippet("Hours: ${location.hours}").icon(
                             getBitmapFromVector(R.drawable.star_black_24,R.color.colorAccent)
-                        ))
+                        ).alpha(0.7f))
                     }
                 })
                 map.uiSettings.isZoomControlsEnabled=true
