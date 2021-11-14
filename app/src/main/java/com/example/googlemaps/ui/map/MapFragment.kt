@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.googlemaps.R
 import com.google.android.gms.maps.CameraUpdate
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 class MapFragment : Fragment() {
 
@@ -27,9 +29,15 @@ class MapFragment : Fragment() {
         val mapFragementManager=childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragementManager.getMapAsync{ map ->
             run {
-                val bay = LatLng(37.68, -122.68)
+                val bay = LatLng(37.68, -122.42)
                 map.moveCamera(CameraUpdateFactory.zoomTo(10f))
                 map.moveCamera(CameraUpdateFactory.newLatLng(bay))
+                mapViewModel.allLocations.observe(viewLifecycleOwner, Observer {
+                    for (location in it){
+                        val point=LatLng(location.latitude,location.longitude)
+                        map.addMarker(MarkerOptions().position(point).title(location.title))
+                    }
+                })
             }
         }
 
