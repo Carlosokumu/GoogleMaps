@@ -1,5 +1,6 @@
-package com.psdemo.outdoorexplorer.ui.map
+package com.example.googlemaps.ui.map
 
+import android.app.Fragment
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
@@ -10,19 +11,19 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.googlemaps.R
-import com.google.android.gms.maps.CameraUpdate
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.psdemo.outdoorexplorer.ui.map.MapViewModel
 
-class MapFragment : Fragment() {
+class MapFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,42 +43,53 @@ class MapFragment : Fragment() {
                 map.moveCamera(CameraUpdateFactory.newLatLng(bay))
                 mapViewModel.allLocations.observe(viewLifecycleOwner, Observer {
                     for (location in it){
-                        val point=LatLng(location.latitude,location.longitude)
-                        map.addMarker(MarkerOptions().position(point).title(location.title).snippet("Hours: ${location.hours}").icon(
-                            getBitmapFromVector(R.drawable.star_black_24,R.color.colorAccent)
+                        val point= LatLng(location.latitude,location.longitude)
+                        val marker= map.addMarker(
+                            MarkerOptions().position(point).title(location.title).snippet("Hours: ${location.hours}").icon(
+                            getBitmapFromVector(R.drawable.star_black_24, R.color.colorAccent)
                         ).alpha(0.7f))
+                        marker?.tag=location.locationId
                     }
                 })
+                map.setOnInfoWindowClickListener{marker ->
+                    run {
+                        val action = MapFragmentDirections.actionNavigationMapToNavigationLocation()
+                        action.locationId = marker.tag as Int
+                        Navigation.findNavController(requireView()).navigate(action)
+                    }
+
+                }
                 map.uiSettings.isZoomControlsEnabled=true
                 map.uiSettings.isTiltGesturesEnabled=false
             }
         }
 
+
     }
 
-   private fun getBitmapFromVector(
-       @DrawableRes vectorResourceId: Int,
-       @ColorRes colorResourceId: Int
+    private fun getBitmapFromVector(
+        @DrawableRes vectorResourceId: Int,
+        @ColorRes colorResourceId: Int
     ): BitmapDescriptor {
         val vectorDrawable = resources.getDrawable(vectorResourceId, requireContext().theme)
-           ?: return BitmapDescriptorFactory.defaultMarker()
+            ?: return BitmapDescriptorFactory.defaultMarker()
 
         val bitmap = Bitmap.createBitmap(
             vectorDrawable.intrinsicWidth,
             vectorDrawable.intrinsicHeight,
             Bitmap.Config.ARGB_8888
-       )
+        )
 
         val canvas = Canvas(bitmap)
-       vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
+        vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
         DrawableCompat.setTint(
             vectorDrawable,
             ResourcesCompat.getColor(
-               resources,
+                resources,
                 colorResourceId, requireContext().theme
             )
         )
         vectorDrawable.draw(canvas)
-      return BitmapDescriptorFactory.fromBitmap(bitmap)
- }
+        return BitmapDescriptorFactory.fromBitmap(bitmap)
+    }
 }

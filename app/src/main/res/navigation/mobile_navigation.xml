@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/navigation_map"
-        android:name="com.psdemo.outdoorexplorer.ui.map.MapFragment"
+        android:name="com.example.googlemaps.ui.map.MapFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_map">
         <action
