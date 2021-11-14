@@ -78,7 +78,7 @@ class LocationsFragment : Fragment(), LocationsAdapter.OnClickListener {
             }
         } else {
 
-            Snackbar.make(requireView(), getString(R.string.locations_snackbar), Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(activity?.findViewById(android.R.id.content)!!, getString(R.string.locations_snackbar), Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.ok) {
                         EasyPermissions.requestPermissions(
                                 this,
