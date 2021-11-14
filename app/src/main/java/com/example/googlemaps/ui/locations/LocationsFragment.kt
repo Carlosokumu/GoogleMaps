@@ -59,13 +59,8 @@ class LocationsFragment : Fragment(), LocationsAdapter.OnClickListener {
     @SuppressLint("MissingPermission")
     @AfterPermissionGranted(RC_LOCATION)
     private fun getCurrentLocation() {
-        if (EasyPermissions.hasPermissions(
-                        requireContext(),
-                        android.Manifest.permission.ACCESS_FINE_LOCATION
-                )
-        ) {
-            val fusedLocationClient =
-                    LocationServices.getFusedLocationProviderClient(requireActivity())
+        if (EasyPermissions.hasPermissions(requireContext(),android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+            val fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
             if (ActivityCompat.checkSelfPermission(requireContext(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions
@@ -82,12 +77,8 @@ class LocationsFragment : Fragment(), LocationsAdapter.OnClickListener {
                 }
             }
         } else {
-            /*
-            Snackbar.make(
-                    requireView(),
-                    getString(R.string.locations_snackbar),
-                    Snackbar.LENGTH_INDEFINITE
-            )
+
+            Snackbar.make(requireView(), getString(R.string.locations_snackbar), Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.ok) {
                         EasyPermissions.requestPermissions(
                                 this,
@@ -98,7 +89,7 @@ class LocationsFragment : Fragment(), LocationsAdapter.OnClickListener {
                     }
                     .show()
 
-             */
+
         }
     }
 
