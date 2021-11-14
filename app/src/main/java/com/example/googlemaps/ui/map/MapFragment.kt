@@ -1,9 +1,15 @@
 package com.psdemo.outdoorexplorer.ui.map
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +17,8 @@ import com.example.googlemaps.R
 import com.google.android.gms.maps.CameraUpdate
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
@@ -35,7 +43,9 @@ class MapFragment : Fragment() {
                 mapViewModel.allLocations.observe(viewLifecycleOwner, Observer {
                     for (location in it){
                         val point=LatLng(location.latitude,location.longitude)
-                        map.addMarker(MarkerOptions().position(point).title(location.title).snippet("Hours: ${location.hours}"))
+                        map.addMarker(MarkerOptions().position(point).title(location.title).snippet("Hours: ${location.hours}").icon(
+                            getBitmapFromVector(R.drawable.star_black_24,R.color.colorAccent)
+                        ))
                     }
                 })
                 map.uiSettings.isZoomControlsEnabled=true
@@ -45,29 +55,29 @@ class MapFragment : Fragment() {
 
     }
 
-//    private fun getBitmapFromVector(
-//        @DrawableRes vectorResourceId: Int,
-//        @ColorRes colorResourceId: Int
-//    ): BitmapDescriptor {
-//        val vectorDrawable = resources.getDrawable(vectorResourceId, requireContext().theme)
-//            ?: return BitmapDescriptorFactory.defaultMarker()
-//
-//        val bitmap = Bitmap.createBitmap(
-//            vectorDrawable.intrinsicWidth,
-//            vectorDrawable.intrinsicHeight,
-//            Bitmap.Config.ARGB_8888
-//        )
-//
-//        val canvas = Canvas(bitmap)
-//        vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
-//        DrawableCompat.setTint(
-//            vectorDrawable,
-//            ResourcesCompat.getColor(
-//                resources,
-//                colorResourceId, requireContext().theme
-//            )
-//        )
-//        vectorDrawable.draw(canvas)
-//        return BitmapDescriptorFactory.fromBitmap(bitmap)
-//    }
+   private fun getBitmapFromVector(
+       @DrawableRes vectorResourceId: Int,
+       @ColorRes colorResourceId: Int
+    ): BitmapDescriptor {
+        val vectorDrawable = resources.getDrawable(vectorResourceId, requireContext().theme)
+           ?: return BitmapDescriptorFactory.defaultMarker()
+
+        val bitmap = Bitmap.createBitmap(
+            vectorDrawable.intrinsicWidth,
+            vectorDrawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+       )
+
+        val canvas = Canvas(bitmap)
+       vectorDrawable.setBounds(0, 0, canvas.width, canvas.height)
+        DrawableCompat.setTint(
+            vectorDrawable,
+            ResourcesCompat.getColor(
+               resources,
+                colorResourceId, requireContext().theme
+            )
+        )
+        vectorDrawable.draw(canvas)
+      return BitmapDescriptorFactory.fromBitmap(bitmap)
+ }
 }
