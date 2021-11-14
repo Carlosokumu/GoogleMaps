@@ -38,6 +38,8 @@ class MapFragment : Fragment() {
                         map.addMarker(MarkerOptions().position(point).title(location.title))
                     }
                 })
+                map.uiSettings.isZoomControlsEnabled=true
+                map.uiSettings.isTiltGesturesEnabled=false
             }
         }
 
