@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.googlemaps.R
-import com.example.googlemaps.ui.locations.LocationsFragmentArgs
 import com.psdemo.outdoorexplorer.ui.location.ActivitiesAdapter
 import com.psdemo.outdoorexplorer.ui.location.LocationViewModel
 import kotlinx.android.synthetic.main.fragment_location.*

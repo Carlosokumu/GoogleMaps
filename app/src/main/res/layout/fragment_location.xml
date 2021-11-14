@@ -67,6 +67,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activities_label"
         app:spanCount="2"
-        tools:itemCount="5"
+        tools:itemCount="6"
         tools:listitem="@layout/location_activity_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

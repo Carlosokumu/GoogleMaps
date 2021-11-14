@@ -7,6 +7,9 @@ interface OutdoorRepository {
     fun getAllActivities(): LiveData<List<Activity>>
 
     fun getAllLocations(): LiveData<List<Location>>
+    /*
+       Get  locations based on the activity Id
+     */
 
     fun getActivityWithLocations(activityId: Int): LiveData<ActivityWithLocations>
 

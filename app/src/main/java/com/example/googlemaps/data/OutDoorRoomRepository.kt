@@ -9,6 +9,9 @@ class OutdoorRoomRepository(private val outdoorDao: OutdoorDao) : OutdoorReposit
     override fun getAllActivities() = outdoorDao.getAllActivities()
 
     override fun getAllLocations() = outdoorDao.getAllLocations()
+    /*
+      Get Locations based on Activity Id
+     */
 
     override fun getActivityWithLocations(activityId: Int) =
         outdoorDao.getActivityWithLocations(activityId)

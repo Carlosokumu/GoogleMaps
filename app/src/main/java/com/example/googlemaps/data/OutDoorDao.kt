@@ -21,7 +21,10 @@ interface OutdoorDao {
 
     @Query("SELECT * FROM Location")
     fun getAllLocations(): LiveData<List<Location>>
-
+   
+    /*  
+         Get Locations Based on the activity's id passed 
+     */
     @Transaction
     @Query("SELECT * FROM Activity WHERE activityId = :activityId")
     fun getActivityWithLocations(activityId: Int): LiveData<ActivityWithLocations>
