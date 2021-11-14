@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.googlemaps.R
+import com.google.android.gms.maps.CameraUpdate
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 
 class MapFragment : Fragment() {
 
@@ -20,6 +24,14 @@ class MapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val mapViewModel = ViewModelProvider(this)
             .get(MapViewModel::class.java)
+        val mapFragementManager=childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragementManager.getMapAsync{ map ->
+            run {
+                val bay = LatLng(37.68, -122.68)
+                map.moveCamera(CameraUpdateFactory.zoomTo(10f))
+                map.moveCamera(CameraUpdateFactory.newLatLng(bay))
+            }
+        }
 
     }
 
